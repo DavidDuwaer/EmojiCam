@@ -8,6 +8,7 @@ import {CameraSelectionButton} from "./components/CameraSelectionButton";
 import {ErrorMessageToUserProvider} from "./contexts/ErrorMessageToUserContext";
 import {UserVideoStreamProvider} from "./contexts/UserVideoStreamContext";
 import {MessageOrLoadingIndicator} from "./components/MessageOrLoadingIndicator";
+import {CameraSelectionProvider} from "./contexts/CameraSelectionContext";
 
 const useStyles = makeStyles(theme => ({
     video: {
@@ -18,13 +19,6 @@ const useStyles = makeStyles(theme => ({
         left: 0,
         right: 0,
     },
-    cameraSelector: {
-        zIndex: 10,
-        position: 'absolute',
-        bottom: 40,
-        left: 'calc(50% - 70px)',
-        width: 140,
-    },
 }));
 
 const App: FC = () => {
@@ -32,13 +26,14 @@ const App: FC = () => {
     const classes = useStyles();
     return <PoseContextProvider>
         <ErrorMessageToUserProvider>
-            <UserVideoStreamProvider>
-                <MessageOrLoadingIndicator/>
-                <Video className={classes.video}/>
-                <CameraSelectionButton className={classes.cameraSelector}/>
-                <BodyPartEmoji bodyPart="left_eye" emoji="❤️"/>
-                <BodyPartEmoji bodyPart="right_eye" emoji="❤️"/>
-            </UserVideoStreamProvider>
+            <CameraSelectionProvider>
+                <UserVideoStreamProvider>
+                    <MessageOrLoadingIndicator/>
+                    <Video className={classes.video}/>
+                    <BodyPartEmoji bodyPart="left_eye" emoji="❤️"/>
+                    <BodyPartEmoji bodyPart="right_eye" emoji="❤️"/>
+                </UserVideoStreamProvider>
+            </CameraSelectionProvider>
         </ErrorMessageToUserProvider>
     </PoseContextProvider>;
 }

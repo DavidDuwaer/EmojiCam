@@ -7,11 +7,10 @@ import {PoseDetector} from '@tensorflow-models/pose-detection';
 import '@tensorflow/tfjs-backend-webgl';
 import {useSetPoses} from "../contexts/PoseContext";
 import {useVideoStream} from "../contexts/UserVideoStreamContext";
+import {CameraSelectionButton} from "./CameraSelectionButton";
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		objectFit: 'cover',
-		objectPosition: 'center center',
 		transition: 'opacity 0.5s',
 	},
 	fadedOut: {
@@ -19,6 +18,19 @@ const useStyles = makeStyles(theme => ({
 	},
 	fadedIn: {
 		opacity: 1,
+	},
+	video: {
+		width: '100%',
+		height: '100%',
+		objectFit: 'cover',
+		objectPosition: 'center center',
+	},
+	cameraSelector: {
+		zIndex: 10,
+		position: 'absolute',
+		bottom: 40,
+		left: 'calc(50% - 70px)',
+		width: 140,
 	},
 }));
 
@@ -58,7 +70,10 @@ export const Video: FC<VideoProps> =
 						console.log('video loaded data')
 						const callback = () => setupDetector(videoEl, detector);
 						const interval = setInterval(callback, 50);
-						return () => clearInterval(interval);
+						return () => {
+							clearInterval(interval);
+							setVideoLoadedData(false);
+						}
 					}
 				}
 			},
@@ -67,9 +82,7 @@ export const Video: FC<VideoProps> =
 		const setPoses = useSetPoses();
 		const setupDetector = useCallback(
 			async (videoEl: HTMLVideoElement, detector: PoseDetector) => {
-				console.log('detection \\')
 				const poses = await detector.estimatePoses(videoEl);
-				console.log('detection /')
 				const {scaleFactor, xOffset, yOffset} = getMediaScaleFactorAndOffset(videoEl);
 				const adjustedPoses = poses
 					.map(pose => ({
@@ -87,16 +100,21 @@ export const Video: FC<VideoProps> =
 			[],
 		);
         const classes = useStyles();
-        return <video
-			className={clsx(classes.root, className, srcObject ? classes.fadedIn : classes.fadedOut)}
-			playsInline
-			autoPlay
-			// width={1200}
-			// width="100%"
-			// height="100%"
-			onLoadedData={onVideoLoadedData}
-			ref={setVideoEl}
-		/>;
+        return <div
+			className={clsx(classes.root, className, (srcObject && videoLoadedData) ? classes.fadedIn : classes.fadedOut)}
+		>
+			<video
+				className={classes.video}
+				playsInline
+				autoPlay
+				// width={1200}
+				// width="100%"
+				// height="100%"
+				onLoadedData={useCallback(() => setVideoLoadedData(true), [])}
+				ref={setVideoEl}
+			/>
+			<CameraSelectionButton className={classes.cameraSelector}/>
+		</div>;
     };
 
 function getMediaScaleFactorAndOffset(videoElement: HTMLVideoElement)

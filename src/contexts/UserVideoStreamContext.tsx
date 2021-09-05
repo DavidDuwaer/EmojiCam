@@ -3,6 +3,7 @@ import {createContext, FC, useEffect, useMemo, useState} from 'react';
 import '@tensorflow/tfjs-backend-webgl';
 import {useRequiredContext} from "../lib/contexts/useRequiredContext";
 import {useErrorMessageToUser} from "./ErrorMessageToUserContext";
+import {useSelectedCameraId} from "./CameraSelectionContext";
 
 
 interface Context
@@ -21,15 +22,20 @@ export const UserVideoStreamProvider: FC =
     {
 		const [videoSrcObject, setVideoSrcObject] = useState<MediaStream>();
 		const [_, setMessage] = useErrorMessageToUser();
+		const [selectedCameraId, setSelectedCameraId] = useSelectedCameraId();
 		useEffect(
 			() => {
+				setVideoSrcObject(value => {
+					value?.getVideoTracks().forEach(track => track.stop());
+					return undefined;
+				});
 				navigator
 					.mediaDevices
 					.getUserMedia({
 						audio: false,
 						video: {
 							deviceId: {
-								exact: undefined,
+								exact: selectedCameraId,
 							}
 						},
 					})
@@ -44,7 +50,7 @@ export const UserVideoStreamProvider: FC =
 						setMessage(`Unable to obtain camera stream. Error: ${e.message}`);
 					});
 			},
-			[setMessage],
+			[setMessage, selectedCameraId],
 		);
         return <ContextRef.Provider value={useMemo(() => ({
 			videoSrcObject,
