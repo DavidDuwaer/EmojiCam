@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/emoji-cam/static/css/main.7a6ff74f.chunk.css",
-    "main.js": "/emoji-cam/static/js/main.2098f9df.chunk.js",
-    "main.js.map": "/emoji-cam/static/js/main.2098f9df.chunk.js.map",
+    "main.js": "/emoji-cam/static/js/main.bb2889d7.chunk.js",
+    "main.js.map": "/emoji-cam/static/js/main.bb2889d7.chunk.js.map",
     "runtime-main.js": "/emoji-cam/static/js/runtime-main.17c43d66.js",
     "runtime-main.js.map": "/emoji-cam/static/js/runtime-main.17c43d66.js.map",
     "static/js/2.d7a0d024.chunk.js": "/emoji-cam/static/js/2.d7a0d024.chunk.js",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.17c43d66.js",
     "static/js/2.d7a0d024.chunk.js",
     "static/css/main.7a6ff74f.chunk.css",
-    "static/js/main.2098f9df.chunk.js"
+    "static/js/main.bb2889d7.chunk.js"
   ]
 }
