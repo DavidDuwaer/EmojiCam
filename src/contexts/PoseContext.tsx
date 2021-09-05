@@ -1,10 +1,7 @@
 import * as React from 'react';
 import {createContext, FC, useContext, useMemo, useState} from 'react';
-import {makeStyles} from "@material-ui/core";
 import * as poseDetection from '@tensorflow-models/pose-detection';
-import * as tf from '@tensorflow/tfjs-core';
 import '@tensorflow/tfjs-backend-webgl';
-import {PoseDetector} from "@tensorflow-models/pose-detection";
 
 
 interface Context
@@ -71,14 +68,15 @@ export function useSetPoses()
 	return useThisContext().setPoses;
 }
 
-export function usePoseNodes(node: BodyPartName)
+export function usePoseNodes(node: BodyPartName, scoreThreshold: number = 0.5)
 {
 	const {poses} = useThisContext();
 	return useMemo(
 		() => {
 			const keyPointIndex = BODY_PART_KEYS[node];
 			return poses
-				?.map(person => person.keypoints[keyPointIndex]!);
+				?.map(person => person.keypoints[keyPointIndex]!)
+				.filter(({score}) => score !== undefined && score > scoreThreshold);
 		},
 		[poses, node],
 	);

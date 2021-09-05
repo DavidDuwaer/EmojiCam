@@ -24,6 +24,7 @@ interface BodyPartEmojiProps
 {
 	bodyPart: BodyPartName
 	emoji: string
+	scoreThreshold?: number
 }
 
 export const BodyPartEmoji: FC<BodyPartEmojiProps> =
@@ -31,11 +32,12 @@ export const BodyPartEmoji: FC<BodyPartEmojiProps> =
         {
             bodyPart,
 			emoji,
+			scoreThreshold,
         },
     ) =>
     {
         const classes = useStyles();
-        const nodes = usePoseNodes(bodyPart);
+        const nodes = usePoseNodes(bodyPart, scoreThreshold);
 		return <>
 			{nodes?.map((node, key) => <div
 				key={key}
