@@ -60,7 +60,7 @@ export function useSetPoses()
 	return useThisContext().setPoses;
 }
 
-export function usePoseNodes(node: BodyPartName, scoreThreshold: number = 0.5)
+export function usePoseNodes(node: BodyPartName, scoreThreshold: number = 0.3)
 {
 	const {poses} = useThisContext();
 	return useMemo(
