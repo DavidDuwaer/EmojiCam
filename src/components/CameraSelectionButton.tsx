@@ -79,7 +79,7 @@ export const CameraSelectionButton: FC<CameraSelectionButtonProps> =
             },
             [nextCamera, setSelectedCameraId],
         );
-        if (nextCamera === undefined || cameras === undefined)
+        if (nextCamera === undefined || cameras === undefined || cameras.length <= 1)
             return null;
         return <ButtonBase
             className={clsx(classes.root, className)}
