@@ -69,7 +69,7 @@ export const Video: FC<VideoProps> =
 					{
 						console.log('video loaded data')
 						const callback = () => setupDetector(videoEl, detector);
-						const interval = setInterval(callback, 50);
+						const interval = setInterval(callback, 100);
 						return () => {
 							clearInterval(interval);
 							setVideoLoadedData(false);
