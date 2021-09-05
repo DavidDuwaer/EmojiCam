@@ -72,7 +72,6 @@ export const CameraSelectionButton: FC<CameraSelectionButtonProps> =
             },
             [cameras, nextDeviceIndex],
         );
-        console.log(cameras);
         const onClick = useCallback(
             () => {
                 if (nextCamera !== undefined)
@@ -80,15 +79,7 @@ export const CameraSelectionButton: FC<CameraSelectionButtonProps> =
             },
             [nextCamera, setSelectedCameraId],
         );
-        console.log(`cameras:`)
-        console.log(cameras);
-        console.log('camera ids:')
-        console.log(cameras?.map(({deviceId}) => deviceId))
-        console.log(`idOfCurrentCamera: ${idOfCurrentCamera}`)
-        console.log(`currentDeviceIndex: ${currentDeviceIndex}`)
-        console.log(`nextDeviceIndex: ${nextDeviceIndex}`)
-        console.log(`nextCamera: ${nextCamera?.deviceId}`)
-        if (nextCamera === undefined || cameras === undefined || cameras.length <= 1)
+        if (nextCamera === undefined || cameras === undefined)
             return null;
         return <ButtonBase
             className={clsx(classes.root, className)}
