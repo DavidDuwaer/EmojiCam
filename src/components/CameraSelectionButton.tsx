@@ -88,7 +88,7 @@ export const CameraSelectionButton: FC<CameraSelectionButtonProps> =
         console.log(`currentDeviceIndex: ${currentDeviceIndex}`)
         console.log(`nextDeviceIndex: ${nextDeviceIndex}`)
         console.log(`nextCamera: ${nextCamera?.deviceId}`)
-        if (nextCamera === undefined)
+        if (nextCamera === undefined || cameras === undefined || cameras.length <= 1)
             return null;
         return <ButtonBase
             className={clsx(classes.root, className)}
