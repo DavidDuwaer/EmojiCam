@@ -31,6 +31,7 @@ const App: FC = () => {
                     <Video className={classes.video}/>
                     <BodyPartEmoji bodyPart="left_eye" emoji="❤️"/>
                     <BodyPartEmoji bodyPart="right_eye" emoji="❤️"/>
+                    <BodyPartEmoji bodyPart="nose" emoji="🐽"/>
                 </UserVideoStreamProvider>
             </CameraSelectionProvider>
         </ErrorMessageToUserProvider>
