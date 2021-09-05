@@ -8,7 +8,7 @@ import {useRequiredContext} from "../lib/contexts/useRequiredContext";
 interface Context
 {
 	poses: poseDetection.Pose[] | undefined
-	setPoses: (poses: poseDetection.Pose[]) => void
+	setPoses: (poses: poseDetection.Pose[] | undefined) => void
 }
 
 const ContextRef = createContext<Context | undefined>(undefined);

@@ -73,6 +73,7 @@ export const Video: FC<VideoProps> =
 						return () => {
 							clearInterval(interval);
 							setVideoLoadedData(false);
+							setPoses(undefined);
 						}
 					}
 				}
