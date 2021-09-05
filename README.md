@@ -6,4 +6,4 @@ A simple web app that uses a [pre-trained TensorFlow.js neural net](https://gith
 
 Other features
 - When a device has more than one camera, a button is shown to switch between all cameras.
-- Is a Progressive Web App
+- It is a Progressive Web App
