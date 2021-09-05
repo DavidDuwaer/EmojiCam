@@ -1,10 +1,9 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import './App.css';
 import {makeStyles} from "@material-ui/core";
 import {Video} from "./components/Video";
 import {PoseContextProvider} from "./contexts/PoseContext";
 import {BodyPartEmoji} from "./components/BodyPartEmoji";
-import {CameraSelectionButton} from "./components/CameraSelectionButton";
 import {ErrorMessageToUserProvider} from "./contexts/ErrorMessageToUserContext";
 import {UserVideoStreamProvider} from "./contexts/UserVideoStreamContext";
 import {MessageOrLoadingIndicator} from "./components/MessageOrLoadingIndicator";

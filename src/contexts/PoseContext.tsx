@@ -4,7 +4,6 @@ import * as poseDetection from '@tensorflow-models/pose-detection';
 import '@tensorflow/tfjs-backend-webgl';
 import {useRequiredContext} from "../lib/contexts/useRequiredContext";
 
-
 interface Context
 {
 	poses: poseDetection.Pose[] | undefined
@@ -71,6 +70,6 @@ export function usePoseNodes(node: BodyPartName, scoreThreshold: number = 0.5)
 				?.map(person => person.keypoints[keyPointIndex]!)
 				.filter(({score}) => score !== undefined && score > scoreThreshold);
 		},
-		[poses, node],
+		[poses, node, scoreThreshold],
 	);
 }

@@ -13,6 +13,6 @@ export function useRequiredContext<T extends any>(
                 throw new Error(`Attempting to use ${contextName} outside of ${providerName}`);
             return context;
         },
-        [context],
+        [context, contextName, providerName],
     );
 }

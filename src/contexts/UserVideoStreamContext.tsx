@@ -21,8 +21,8 @@ export const UserVideoStreamProvider: FC =
     ) =>
     {
 		const [videoSrcObject, setVideoSrcObject] = useState<MediaStream>();
-		const [_, setMessage] = useErrorMessageToUser();
-		const [selectedCameraId, setSelectedCameraId] = useSelectedCameraId();
+		const setMessage = useErrorMessageToUser()[1];
+		const [selectedCameraId] = useSelectedCameraId();
 		useEffect(
 			() => {
 				setVideoSrcObject(value => {

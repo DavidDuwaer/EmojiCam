@@ -59,27 +59,6 @@ export const Video: FC<VideoProps> =
 		);
 		const [videoLoadedData, setVideoLoadedData] = useState(false);
 		const [tensorFlowInitialized, setTensorFlowInitialized] = useState(false);
-		useEffect(
-			() => {
-				if (videoEl !== null && srcObject !== undefined && detector !== undefined)
-				{
-					console.log('videoEl nonnull, srcOgbject nonnull and detector nonnull')
-					videoEl.srcObject = srcObject;
-					if (videoLoadedData)
-					{
-						console.log('video loaded data')
-						const callback = () => setupDetector(videoEl, detector);
-						const interval = setInterval(callback, 100);
-						return () => {
-							clearInterval(interval);
-							setVideoLoadedData(false);
-							setPoses(undefined);
-						}
-					}
-				}
-			},
-			[videoEl, srcObject, detector, videoLoadedData],
-		)
 		const setPoses = useSetPoses();
 		const setupDetector = useCallback(
 			async (videoEl: HTMLVideoElement, detector: PoseDetector) => {
@@ -99,7 +78,28 @@ export const Video: FC<VideoProps> =
 				setPoses(adjustedPoses);
 				setTensorFlowInitialized(true);
 			},
-			[],
+			[setPoses],
+		);
+		useEffect(
+			() => {
+				if (videoEl !== null && srcObject !== undefined && detector !== undefined)
+				{
+					console.log('videoEl nonnull, srcOgbject nonnull and detector nonnull')
+					videoEl.srcObject = srcObject;
+					if (videoLoadedData)
+					{
+						console.log('video loaded data')
+						const callback = () => setupDetector(videoEl, detector);
+						const interval = setInterval(callback, 100);
+						return () => {
+							clearInterval(interval);
+							setVideoLoadedData(false);
+							setPoses(undefined);
+						}
+					}
+				}
+			},
+			[videoEl, srcObject, detector, videoLoadedData, setPoses, setupDetector],
 		);
         const classes = useStyles();
         return <div
