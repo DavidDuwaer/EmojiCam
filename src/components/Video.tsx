@@ -58,7 +58,7 @@ export const Video: FC<VideoProps> =
 			[],
 		);
 		const [videoLoadedData, setVideoLoadedData] = useState(false);
-		const onVideoLoadedData = useCallback(() => setVideoLoadedData(true), []);
+		const [tensorFlowInitialized, setTensorFlowInitialized] = useState(false);
 		useEffect(
 			() => {
 				if (videoEl !== null && srcObject !== undefined && detector !== undefined)
@@ -97,12 +97,13 @@ export const Video: FC<VideoProps> =
 							} as poseDetection.Keypoint))
 					} as poseDetection.Pose));
 				setPoses(adjustedPoses);
+				setTensorFlowInitialized(true);
 			},
 			[],
 		);
         const classes = useStyles();
         return <div
-			className={clsx(classes.root, className, (srcObject && videoLoadedData) ? classes.fadedIn : classes.fadedOut)}
+			className={clsx(classes.root, className, (srcObject && videoLoadedData && tensorFlowInitialized) ? classes.fadedIn : classes.fadedOut)}
 		>
 			<video
 				className={classes.video}
