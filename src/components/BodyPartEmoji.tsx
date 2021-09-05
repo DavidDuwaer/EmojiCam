@@ -3,7 +3,7 @@ import {FC} from 'react';
 import {makeStyles} from "@material-ui/core";
 import {BodyPartName, usePoseNodes} from "../contexts/PoseContext";
 
-const ELEMENT_SIZE = 44;
+const ELEMENT_SIZE = 88;
 
 const useStyles = makeStyles(theme => ({
 	root: {
