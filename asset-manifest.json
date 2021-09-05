@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/emoji-cam/static/css/main.7a6ff74f.chunk.css",
-    "main.js": "/emoji-cam/static/js/main.76fbb349.chunk.js",
-    "main.js.map": "/emoji-cam/static/js/main.76fbb349.chunk.js.map",
+    "main.css": "/emoji-cam/static/css/main.c8cc1f9a.chunk.css",
+    "main.js": "/emoji-cam/static/js/main.d7592562.chunk.js",
+    "main.js.map": "/emoji-cam/static/js/main.d7592562.chunk.js.map",
     "runtime-main.js": "/emoji-cam/static/js/runtime-main.17c43d66.js",
     "runtime-main.js.map": "/emoji-cam/static/js/runtime-main.17c43d66.js.map",
     "static/js/2.b4c779ca.chunk.js": "/emoji-cam/static/js/2.b4c779ca.chunk.js",
@@ -12,14 +12,14 @@
     "index.html": "/emoji-cam/index.html",
     "service-worker.js": "/emoji-cam/service-worker.js",
     "service-worker.js.map": "/emoji-cam/service-worker.js.map",
-    "static/css/main.7a6ff74f.chunk.css.map": "/emoji-cam/static/css/main.7a6ff74f.chunk.css.map",
+    "static/css/main.c8cc1f9a.chunk.css.map": "/emoji-cam/static/css/main.c8cc1f9a.chunk.css.map",
     "static/js/2.b4c779ca.chunk.js.LICENSE.txt": "/emoji-cam/static/js/2.b4c779ca.chunk.js.LICENSE.txt",
     "static/media/index.css": "/emoji-cam/static/media/Roboto-Regular.c4c947f8.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.17c43d66.js",
     "static/js/2.b4c779ca.chunk.js",
-    "static/css/main.7a6ff74f.chunk.css",
-    "static/js/main.76fbb349.chunk.js"
+    "static/css/main.c8cc1f9a.chunk.css",
+    "static/js/main.d7592562.chunk.js"
   ]
 }
