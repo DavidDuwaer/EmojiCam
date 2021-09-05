@@ -6,30 +6,37 @@ import * as poseDetection from '@tensorflow-models/pose-detection';
 import {PoseDetector} from '@tensorflow-models/pose-detection';
 import '@tensorflow/tfjs-backend-webgl';
 import {useSetPoses} from "../contexts/PoseContext";
+import {useVideoStream} from "../contexts/UserVideoStreamContext";
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		objectFit: 'cover',
 		objectPosition: 'center center',
+		transition: 'opacity 0.5s',
+	},
+	fadedOut: {
+		opacity: 0,
+	},
+	fadedIn: {
+		opacity: 1,
 	},
 }));
 
 interface VideoProps
 {
 	className?: string
-	srcObject: MediaStream | undefined
 }
 
 export const Video: FC<VideoProps> =
     (
         {
             className,
-			srcObject,
         },
     ) =>
     {
 		const [videoEl, setVideoEl] = useState<HTMLVideoElement | null>(null);
 		const [detector, setDetector] = useState<PoseDetector>();
+		const srcObject = useVideoStream();
 		useEffect(
 			() => {
 				const detectorConfig = {modelType: poseDetection.movenet.modelType.SINGLEPOSE_LIGHTNING};
@@ -81,7 +88,7 @@ export const Video: FC<VideoProps> =
 		);
         const classes = useStyles();
         return <video
-			className={clsx(classes.root, className)}
+			className={clsx(classes.root, className, srcObject ? classes.fadedIn : classes.fadedOut)}
 			playsInline
 			autoPlay
 			// width={1200}

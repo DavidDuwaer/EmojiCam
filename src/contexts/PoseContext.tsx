@@ -1,7 +1,8 @@
 import * as React from 'react';
-import {createContext, FC, useContext, useMemo, useState} from 'react';
+import {createContext, FC, useMemo, useState} from 'react';
 import * as poseDetection from '@tensorflow-models/pose-detection';
 import '@tensorflow/tfjs-backend-webgl';
+import {useRequiredContext} from "../lib/contexts/useRequiredContext";
 
 
 interface Context
@@ -52,15 +53,7 @@ export const PoseContextProvider: FC =
 
 function useThisContext()
 {
-	const context = useContext(ContextRef);
-	return useMemo(
-		() => {
-			if (context === undefined)
-				throw new Error('Cannot use PoseContext outside of PoseContextProvider');
-			return context;
-		},
-		[context],
-	);
+	return useRequiredContext(ContextRef, 'PoseContext', 'PoseContextProvider');
 }
 
 export function useSetPoses()
