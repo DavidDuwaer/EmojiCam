@@ -13,4 +13,5 @@ jobs:
         with:
           node-version: 15.x
       - run: npm ci
+      - run: git config --global user.name "GitHub worker"
       - run: npm run deploy
