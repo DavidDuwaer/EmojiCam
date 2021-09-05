@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/emoji-cam/static/css/main.7a6ff74f.chunk.css",
-    "main.js": "/emoji-cam/static/js/main.bb2889d7.chunk.js",
-    "main.js.map": "/emoji-cam/static/js/main.bb2889d7.chunk.js.map",
+    "main.js": "/emoji-cam/static/js/main.76fbb349.chunk.js",
+    "main.js.map": "/emoji-cam/static/js/main.76fbb349.chunk.js.map",
     "runtime-main.js": "/emoji-cam/static/js/runtime-main.17c43d66.js",
     "runtime-main.js.map": "/emoji-cam/static/js/runtime-main.17c43d66.js.map",
-    "static/js/2.d7a0d024.chunk.js": "/emoji-cam/static/js/2.d7a0d024.chunk.js",
-    "static/js/2.d7a0d024.chunk.js.map": "/emoji-cam/static/js/2.d7a0d024.chunk.js.map",
+    "static/js/2.b4c779ca.chunk.js": "/emoji-cam/static/js/2.b4c779ca.chunk.js",
+    "static/js/2.b4c779ca.chunk.js.map": "/emoji-cam/static/js/2.b4c779ca.chunk.js.map",
     "static/js/3.ca9f66d3.chunk.js": "/emoji-cam/static/js/3.ca9f66d3.chunk.js",
     "static/js/3.ca9f66d3.chunk.js.map": "/emoji-cam/static/js/3.ca9f66d3.chunk.js.map",
     "index.html": "/emoji-cam/index.html",
     "service-worker.js": "/emoji-cam/service-worker.js",
     "service-worker.js.map": "/emoji-cam/service-worker.js.map",
     "static/css/main.7a6ff74f.chunk.css.map": "/emoji-cam/static/css/main.7a6ff74f.chunk.css.map",
-    "static/js/2.d7a0d024.chunk.js.LICENSE.txt": "/emoji-cam/static/js/2.d7a0d024.chunk.js.LICENSE.txt",
+    "static/js/2.b4c779ca.chunk.js.LICENSE.txt": "/emoji-cam/static/js/2.b4c779ca.chunk.js.LICENSE.txt",
     "static/media/index.css": "/emoji-cam/static/media/Roboto-Regular.c4c947f8.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.17c43d66.js",
-    "static/js/2.d7a0d024.chunk.js",
+    "static/js/2.b4c779ca.chunk.js",
     "static/css/main.7a6ff74f.chunk.css",
-    "static/js/main.bb2889d7.chunk.js"
+    "static/js/main.76fbb349.chunk.js"
   ]
 }
